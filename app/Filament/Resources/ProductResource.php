@@ -92,9 +92,9 @@ class ProductResource extends Resource
         return $table
             ->columns([
                 SpatieMediaLibraryImageColumn::make('images')
-                ->collection('images')
-                ->conversion('thumb')
-                ->limit(1),
+                    ->collection('images')
+                    ->conversion('thumb')
+                    ->limit(1),
                 TextColumn::make('title')->sortable()->searchable()->words(10),
                 TextColumn::make('status')->badge()->colors(ProductStatusEnum::colors()),
 
@@ -130,7 +130,8 @@ class ProductResource extends Resource
     {
         return $page->generateNavigationItems([
             Pages\EditProduct::class,
-            Pages\ProductImages::class
+            Pages\ProductImages::class,
+            Pages\VariationTypes::class
         ]);
     }
 
@@ -141,6 +142,7 @@ class ProductResource extends Resource
             'create' => Pages\CreateProduct::route('/create'),
             'edit' => Pages\EditProduct::route('/{record}/edit'),
             'images' => Pages\ProductImages::route('/{record}/images'),
+            'variation-types' => Pages\VariationTypes::route('/{record}/variation-types'),
         ];
     }
     public static function  canViewAny(): bool
