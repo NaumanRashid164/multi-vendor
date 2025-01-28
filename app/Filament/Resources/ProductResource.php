@@ -131,7 +131,8 @@ class ProductResource extends Resource
         return $page->generateNavigationItems([
             Pages\EditProduct::class,
             Pages\ProductImages::class,
-            Pages\VariationTypes::class
+            Pages\VariationTypes::class,
+            Pages\ProductVariations::class,
         ]);
     }
 
@@ -143,6 +144,7 @@ class ProductResource extends Resource
             'edit' => Pages\EditProduct::route('/{record}/edit'),
             'images' => Pages\ProductImages::route('/{record}/images'),
             'variation-types' => Pages\VariationTypes::route('/{record}/variation-types'),
+            'variations' => Pages\ProductVariations::route('/{record}/variations'),
         ];
     }
     public static function  canViewAny(): bool
